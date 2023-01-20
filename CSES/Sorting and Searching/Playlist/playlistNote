@@ -1,0 +1,19 @@
+看完 playlistReference.cpp 的收穫：
+
+＊＊unordered_map vs map
+1.  unordered_map就是沒有排序的 map。 (map的 key值會自動排序)
+2.  unordered_map更有效率
+
+reference: 
+    https://www.geeksforgeeks.org/map-vs-unordered_map-c/
+
+
+＊＊ios::sync_with_stdio(0), cin.tie(0) 用處
+1.  因為 cin ,cout 會擺輸入輸出的東西先放入緩衝區再輸出，所以效率變低。
+    若打這個指令就可以打消 iostream的輸入輸出緩存，進而節省時間（更接近 scanf ,printf效率）
+2.  默認情況裡，cin 和 cout綁定。tie(0) （0表示NULL）可以解除cin 和cout 的綁定。
+
+reference:
+    https://blog.csdn.net/u014665013/article/details/70521300
+    https://hackmd.io/@wiwiho/CPN-io-optimization
+
