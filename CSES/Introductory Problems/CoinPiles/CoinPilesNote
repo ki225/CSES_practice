@@ -1,0 +1,8 @@
+a = 2x + 1y
+b = 1x + 2y
+
+2a - b = 3x
+2b - a = 3y
+
+x and y should be non negative , 
+and from here we can derive (a+b)%3==0.
