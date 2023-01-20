@@ -1,4 +1,4 @@
-解題想法：
+PalindromeReorder.cpp 解題想法：
 （以為直觀的直觀）（好像很繞）
 
 Step1. 判斷是 Odd 還是 Even?
@@ -12,3 +12,18 @@ Step4. 若有解，則重新排列 vector 內元素，方便等等排列要輸�
 Step5. 按照vector內元素順序，重新排列要輸出的字串。一次就將字置入頭和尾（從最頭和最尾開始排，一路往中間）（ Index 為 i 和 (string.length()-1) -i ）
        每置入完兩個字， Map內該字的數量-2。若Map內該字數量小於2就換下一個字
 Step6. inputString Length 若為 Odd，迴圈的index到中間時就放入有奇數個數的那個字。
+
+
+==========================================================================================================================================
+PalindromeReorderReference.cpp Note:
+
+**for(auto i:a)
+1.  auto:在定義變數初始值和類型時會自動選擇
+2.  for(auto a:b)中b为一个容器，效果是利用a遍历并获得b容器中的每一个值，但是a无法影响到b容器中的元素。
+3.  for(auto &a:b)中加了引用符号，可以对容器中的内容进行赋值，即可通过对a赋值来做到容器b的内容填充。
+
+reference:
+https://blog.csdn.net/weixin_43956456/article/details/108001988?spm=1001.2101.3001.6661.1&utm_medium=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1-108001988-blog-112554056.pc_relevant_recovery_v2&depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1-108001988-blog-112554056.pc_relevant_recovery_v2&utm_relevant_index=1
+https://blog.csdn.net/u011895157/article/details/123558869?spm=1001.2101.3001.6650.1&utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1-123558869-blog-108001988.pc_relevant_aa&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1-123558869-blog-108001988.pc_relevant_aa&utm_relevant_index=2
+https://blog.csdn.net/xiaoquantouer/article/details/51647865  （auto用法）
+
