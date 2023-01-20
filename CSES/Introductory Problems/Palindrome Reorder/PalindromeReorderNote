@@ -1,0 +1,14 @@
+解題想法：
+（以為直觀的直觀）（好像很繞）
+
+Step1. 判斷是 Odd 還是 Even?
+Step2. 把字串存入 Map & Vector
+       Map:存有哪些字以及他們出現的次數（<char,int>）
+       Vector:存有哪些字出現在字串（每個字只存一次）(<char>)
+Step3. 查他們每個字有奇數個的數量：
+       inputString Length 若為 Odd: 只能出現一個字有奇數數量，否則"NO SOLUTION"，終止程式
+       inputString Length 若為 Even: 不能有任何字有奇數數量，否則"NO SOLUTION"，終止程式
+Step4. 若有解，則重新排列 vector 內元素，方便等等排列要輸出的字串。
+Step5. 按照vector內元素順序，重新排列要輸出的字串。一次就將字置入頭和尾（從最頭和最尾開始排，一路往中間）（ Index 為 i 和 (string.length()-1) -i ）
+       每置入完兩個字， Map內該字的數量-2。若Map內該字數量小於2就換下一個字
+Step6. inputString Length 若為 Odd，迴圈的index到中間時就放入有奇數個數的那個字。
