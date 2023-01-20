@@ -1,0 +1,7 @@
+＊＊String permutation algorithm
+
+解法就是一直swap字。
+第一層是「第一個字」和「第一個字後面的字中挑一個」互換，第二層是「第二個字」和「第二個字後面的字中挑一個」互換（第一個字不動），以此類推。
+
+Reference:
+https://youtube.com/watch?v=GuTPwotSdYw&feature=shares
