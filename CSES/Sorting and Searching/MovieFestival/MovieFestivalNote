@@ -6,7 +6,7 @@
 
 ＊＊ Pair
 1.  pair可將兩個數合成一組，結構體是 struct
-2.  內部兩個變數分別為 firsst 和 second
+2.  內部兩個變數分別為 first 和 second
 3.  #include <utility>
 
 ＊＊ Sort()
