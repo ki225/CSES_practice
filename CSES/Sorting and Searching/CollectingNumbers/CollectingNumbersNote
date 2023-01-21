@@ -1,0 +1,5 @@
+CollectingNumbers1.cpp 是直接解法：當現在數到n時，就一直往下尋找 n+1 這個數字，若到底都找不到就代表要下一輪。因為最糟糕的情況會跑n*n次（降冪），所以沒效率，會超時。
+CollectingNumbers2.cpp 藉由比較每個字的index值來判斷要幾次才能排完所有數字：若下一個字的index值比較小，就代表要下一輪。
+
+Reference:
+https://youtube.com/watch?v=fs_u2VE3ojo&feature=shares
