@@ -1,0 +1,6 @@
+動態規劃 (Dynamic Programming)(DP)
+1.  原理：把大問題分成較簡單的子問題，方便解決。
+2.  例如：費氏數列
+
+Reference:
+https://medium.com/技術筆記/演算法筆記系列-dynamic-programming-動態規劃-de980ca4a2d3
