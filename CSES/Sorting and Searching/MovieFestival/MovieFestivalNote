@@ -1,0 +1,21 @@
+
+解題方向：
+1.  區間排序問題 / 區間問題 （ Interval Scheduling Problem ）
+2.  貪婪演算法（ Greedy Algorithm ）：
+    在每一步採用當前看起來最好的選擇，進而希望使最終答案最好的方法。
+
+＊＊ Pair
+1.  pair可將兩個數合成一組，結構體是 struct
+2.  內部兩個變數分別為 firsst 和 second
+3.  #include <utility>
+
+＊＊ Sort()
+1.  系統默認用升冪排序：void sort (RandomAccessIterator first, RandomAccessIterator last);
+2.  依照自定義的排序方法（comp所定義，comp回傳booline值）（升或降）：void sort (RandomAccessIterator first, RandomAccessIterator last, Compare comp);
+
+Reference:
+1.  贪心算法（二）区间调度问题，电影节：  https://blog.csdn.net/weixin_52307528/article/details/122543582 
+2.  [CSES][Sorting and Searching] Movie Festival： https://www.youtube.com/watch?v=m5hGKMi-NP8  
+3.  C++ sort()排序函数用法详解：  http://c.biancheng.net/view/7457.html  
+4.  貪婪演算法(Greedy)：  https://www.csie.ntu.edu.tw/~b98902112/cpp_and_algo/cpp02/greedy.html 
+
