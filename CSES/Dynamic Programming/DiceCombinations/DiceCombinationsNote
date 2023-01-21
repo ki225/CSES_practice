@@ -1,0 +1,17 @@
+解題想法：
+
+                                                          f(4)
+                                         
+                 -1                              -2                      -3               -4                 
+                =f(3)                           =f(2)                   =f(1)             =f(0)               
+            
+        -1           -2        -3             -1        -2                -1            
+       f(2)         f(1)      f(0)          f(1)       f(0)               f(0)
+       
+     -1   -2         -1                      -1
+    f(1)  f(0)      f(0)                    f(0)
+----------------------------------------------------------------------------------------------------------------------------
+*f(0)=1
+
+Reference:
+https://www.google.com/search?client=safari&rls=en&q=dice+combinations&ie=UTF-8&oe=UTF-8#fpstate=ive&vld=cid:59165aaa,vid:5gd5jptXWAM
