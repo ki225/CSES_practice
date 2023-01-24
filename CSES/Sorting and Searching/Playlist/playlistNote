@@ -17,3 +17,16 @@ reference:
     https://blog.csdn.net/u014665013/article/details/70521300
     https://hackmd.io/@wiwiho/CPN-io-optimization
 
+=====================================================================================
+小思考收穫：
+＊＊三元運算子
+    1.  if-else精簡版，可以表示成：   條件式 ? 條件式為true時執行的陳述句 : 條件式為false時執行的陳述句
+    2.  例子（來源自下網頁）：
+    
+        if (flag)
+            ret = a;    ＝＝＝＝＝>      ret = flag ? a : b;
+        else
+            ret = b;
+    
+reference:
+    https://shengyu7697.github.io/cpp-ternary-operator/
