@@ -27,6 +27,33 @@ reference:
             ret = a;    ＝＝＝＝＝>      ret = flag ? a : b;
         else
             ret = b;
+            
+＊＊更改一：
+int main() {
+    ios::sync_with_stdio(0), cin.tie(0);
+    int n, start = 0, ans = 0, temp;
+    cin >> n;
+
+    for (int i = 1; i <= n; i++) {
+        cin >> temp;
+        start = mp[temp] ==0? start : mp[temp];         ＊＊原本為   start = max(start, mp[temp]);
+        ans = max(ans, i - start ); //第一個ans會是0
+        mp[temp] = i ;
+    }
+
+    cout << ans << "\n";
+    return 0;
+}
+
+例子：
+    10
+    1 1 2 2 4 5 6 2 4 1
+    更改過後輸出是8，未更改的輸出是5。
+    
+    原因是答案變成最後一個1和倒數第二個1的index相差值。
+    在index=8(輸入數字為4)時，start值為5(現在5的位置)；到index=9(輸入數字為1)，start卻變成mp[1]的值（也就是2），此時的ans值為最大值，所以就成了答案。
+    
+    也就是說，即使內部有重複數字，也會因為包夾他們的兩個相同數字而影響答案。如：1 2 3 2 1 出來的答案為最外層兩個1的index之差。
     
 reference:
     https://shengyu7697.github.io/cpp-ternary-operator/
