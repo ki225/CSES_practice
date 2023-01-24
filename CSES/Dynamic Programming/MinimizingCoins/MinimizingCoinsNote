@@ -1,0 +1,12 @@
+解題提示和提醒：
+  1.  用遞迴的概念處理。例如：有 2$ 和 5$ 兩種硬幣，則 n元所使用的硬幣數為 min ( n-2 元所使用得硬幣數 , n-5元所使用的硬幣數 )
+  2.  記得要先處理 basic條件，不然迴圈跑完，所有金額的dp[]情況都會是原本預設的最大值。
+
+新知識：
+  1.  INT_MAX 和 INT_MIN
+      (1)標頭檔：<limits.h>（C語言）、 <climits> (C++)
+      (2)值：INT_MAX = +2147483647 /  INT_MIN = -2147483648
+
+Reference:
+https://usaco.guide/problems/cses-1634-minimizing-coins/solution
+INT_MAX and INT_MIN in C/C++ and Applications：https://www.geeksforgeeks.org/int_max-int_min-cc-applications/ 
