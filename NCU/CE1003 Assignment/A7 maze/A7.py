@@ -26,9 +26,6 @@ def move(maze,start): #判斷能否移動
 def find_path(maze,start,end):
     move_direct=[(1,0),(0,1)] #往下或往右
     if start == end:
-        #path.append(start)
-        #total_move_path.append(path)
-        #print(1)
         canpass.append(1)
         return True
     
@@ -51,7 +48,6 @@ def find_path(maze,start,end):
         return False
 
 map=get_maze()
-#possible_path=1
 if find_path(map,start=(1,1),end=(5,5)):
         #print(move_path[::-1]) 。#遞迴法下的輸出是用「stack」，因為要先執行下一個 Function 直到終止條件之後再一個一個 return 回上層
     for i in canpass:
