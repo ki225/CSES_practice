@@ -4,34 +4,14 @@
 using namespace std;
 vector <long> ContiLength;
 
-
-/**
-int whichCase(char w){
-    switch(w){
-        case 'A':
-            return 1;
-        case 'T':
-            return 2;
-        case 'C':
-            return 3;
-        case 'G':
-            return 4;
-    }
-    return 0;
-}
-
 void findContinuous(string words){
     int count=1,i=0;
     for(i=0;i<words.length()-1;i++){
         if(words[i]==words[i+1]){
-            //cout <<words[i]<<' ';
-            //cout << count<<' ';
             count++;
         }
         else if (words[i]!=words[i+1]){
             ContiLength.push_back(count);
-            //cout <<words[i]<<' '<<count;
-            //cout <<endl;
             count=1;
         }
     }
