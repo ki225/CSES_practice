@@ -1,3 +1,8 @@
+學到的東西
+  1.  pair
+      (1)把兩個資料組合在一起，第一個為first，第二個為second
+      (2)pair<資料型態,資料型態>
+
 一些想法：
   1.  一次就使用一組資料（書的價格和頁數）去比較有沒有比較大
   2.  從最大的可能金額作為迴圈的開始；最小的可能金額則為那組資料的金額。
@@ -28,3 +33,4 @@ pages:  0   0   0   1   5   8   12  12  12  12
 
 Reference:
 https://www.youtube.com/watch?v=MEXBU9SFy7Q&t=7s
+C++ pair的基本用法总结（整理）: https://blog.csdn.net/sevenjoin/article/details/81937695
