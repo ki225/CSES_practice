@@ -1,0 +1,72 @@
+＊＊解題想法
+
+『原本的想法』
+
+3*5 長方形
+0   0   0   0   0
+0   0   0   0   0
+0   0   0   0   0
+第一刀
+0   0   0       0   0
+0   0   0   +   0   0
+0   0   0       0   0
+第二刀
+0   0   0      
+0   0   0   +   0   0   +   0   0
+0   0   0       0   0
+第三刀
+0   0   0      
+0   0   0   +   0   0   +   0   +   0
+0   0   0       0   0
+---------------------------------------------------
+『影片的想法』
+
+2*3 長方形
+0   0   0   
+0   0   0   
+
+可以變成
+
+1*3 + 1*3 （ (2-k)*3+k*3 ，k=1）
+0 0 0   +   0 0 0
+
+2*2 + 2*1   （ 2*(3-l)+2*l，l=1）
+0 0       0         **其中dp[2][2]為零，表示2*2方形不必切。
+0 0   +   0
+
+2*1 + 1*2     （ 2*(3-l)+2*l，l=2）
+0       0 0
+0   +   0 0
+
+dp[a][b] = 1 + min(dp[a-k][b]+dp[k][b], dp[a][b-l]+dp[a][l])
+表示a*b的長方形由 （ a*b在k橫著切 或 a*b在l縱著切 ）+ 1
+後面的 +1 表示在 k/l 處切的一刀
+========================================================
+Reference
+https://www.youtube.com/watch?v=nzjpHBnhb4c
+=========================================================
+＊＊直觀解會錯，雖然我也不知道為何
+int main(){
+    int longLength,shortLength;
+    int cutTimes=0;
+    cin >> longLength >> shortLength;
+    if(shortLength > longLength){
+        swap(longLength , shortLength);
+    }
+    else if(longLength == shortLength){ //不需要切
+        cout << 0 << endl;
+        return 0;
+    }
+
+    while((longLength!=1)&&(longLength!=shortLength)){
+        int tmp = shortLength;
+        shortLength = longLength - tmp;
+        longLength = tmp;
+        if(shortLength > longLength){
+            swap(longLength , shortLength);
+        }
+        cutTimes++;
+    }
+    cout <<cutTimes<<endl;
+    return 0;
+}
