@@ -1,0 +1,4 @@
+題目是要求訊息從一號電腦（Uolevi's computer）可以傳遞到第n號電腦（Maija's computer）的最短路徑。
+
+因為是從一號電腦往下去尋找，且又是要找「最短」路徑，所以利用廣度優先 BFS 搜尋法
+若BFS結束後，第n號電腦對應到的 connect_reverse 為 -1（ connect_reverse[n] == -1 ），表示前面沒有一串數字幫他和第一台電腦連接。
