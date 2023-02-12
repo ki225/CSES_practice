@@ -1,0 +1,118 @@
+有權重問題時，BFS就沒那麼適合
+
+＊＊Dijkstra’s Shortest Path Algorithm（一種貪心演算法）
+  功能：用來找某一點到其他點的最短路徑
+  定義：
+  從最接近起點的點（距離起點最短的點）作為開始的地方。
+      對於每個點，我們要決定如何使路徑最短
+      優化所有經過這個點的路徑長 ==> 選取最短的路徑長
+      
+  原理：
+      可以設vector: visit，儲存經過的點以及還沒經過的點。
+      另一個queue儲存1到某一個點的路徑長和先前的點。queue<pair<int,int> >
+      
+            1     
+      (6) /    \(10)
+        /       \
+       2 ------- 3
+        \  (1)
+    (12) \
+          4 
+      
+      Step1.一開始先設一到其他點的距離為無限大，1~1的距離為 0
+      
+      queue                               vis
+      
+      點     路徑長       previous          {}
+      -------------------------
+      1        0            0
+      2     infinite        0                 
+      3     infinite        0
+      4     infinite        0
+          
+      Step2.先判斷和1相連的點，發現比infinite小，所以取代，2和3的previous為1。1就拜訪過了，之後不再拜訪。
+      
+      點     路徑長       previous          {1}
+      -------------------------
+      1        0            0
+      2        6            1                 
+      3        10           1
+      4     infinite        0
+          
+      Step3.因為1~2的距離比1~3的距離短，所以先判斷2。
+            判斷和2相連的點，發現「1~2的距離+2~4的距離」比「infinite」小，所以取代，4的previous為2。「1~2的距離+2~3的距離」比「infinite」小，所以取代，3的previous為2。
+            2就拜訪過了，之後不再拜訪。
+      
+      點     路徑長       previous          {1,2}
+      -------------------------
+      1        0            0
+      2        6            1                 
+      3        7            2
+      4        18           2
+      
+      Step4.因為1~3的距離比1~4的距離短，所以先判斷3。但和3連接的點都儲存在visit裡，所以略過，並把3存入visit。
+      
+      點     路徑長       previous          {1,2,3}
+      -------------------------
+      1        0            0
+      2        6            1                 
+      3        7            2
+      4        18           2
+ 
+      Step5.判斷4。但和4連接的點都儲存在visit裡，所以略過，並把4存入visit。
+      
+      點     路徑長       previous          {1,2,3,4}
+      -------------------------
+      1        0            0
+      2        6            1                 
+      3        7            2
+      4        18           2
+      
+      
+  範例（括號內為距離）：
+          1     
+    (6) /    \(10)
+      /       \
+     2 ------- 3
+      \  (1)
+  (12) \
+        4
+
+
+      pq={ {0,1} }
+          top.second = 1
+          造訪點 2:因為1~2的距離為6比「無限大」還小，所以 dis[2] = 6  pq={ {6,2} }
+          造訪點 3:因為1~3的距離為10比「無限大」還小，所以 dis[3] = 10    pq={ {6,2} , {10,3} }
+          1造訪過了，之後不會再造訪了
+
+      pq={ {6,2} , {10,3} } (有依照pq要求的順序)
+          top.second = 2
+          不造訪點 1 (不用再去用vis來判斷的原因是因為，當初在存連接關係時，只有單向儲存，例如 len[1]={2,3} 表示1~2的距離為3，但沒有儲存len[2]={1,3} )
+          造訪點 3:因為 top.first+2~3的距離 = 1~2的距離+2~3的距離 = 6+1<10，所以 pq = { {7,3} } (10改成3)
+          造訪點 4:因為 top.first+2~4的距離 = 1~2的距離+2~4的距離 = 6+12<無限大，所以 pq = { {7,3},{18,4} } 
+
+      pq = { {7,3},{18,4} }
+          top.second = 3
+          都造訪過了
+
+      pq = { {18,4} }
+          top.second = 4
+          都造訪過了
+        
+        
+＊＊儲存pair資料的方式：
+  1. make_pair(a,b) e.g.:vec.push_back(make_pair(a,b))
+  2. {a,b} e.g.:vec.push_back({a,b})
+  
+＊＊priority_queue
+  1. 標頭檔 #include<queue>
+  2. priority_queue<Type, Container, Functional> 
+     Type, Container, Functional是 pq 需要的三個元素，type是資料型態，container是容器類型，functional是元素排序比較的依據
+  3.比較的資料若為pair，則會比較first的大小
+  4. 若沒有特別定義，則為預設的「由大到小」；把greater放在functional的位置就可以讓元素「由小到大」排列
+
+Reference:
+https://www.youtube.com/watch?v=pVfj6mxhdMw
+09 Graph Theory:: Dijkstra's Algorithm with CSES 08 Shortest Routes I (1671): https://www.youtube.com/watch?v=ditJWdFqoXk&t=14s
+C++ pair的基本用法总结（整理）:  https://blog.csdn.net/sevenjoin/article/details/81937695
+priority_queue的用法：  https://www.cnblogs.com/Deribs4/p/5657746.html
