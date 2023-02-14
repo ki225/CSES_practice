@@ -1,0 +1,47 @@
+Finding the centroid of a tree
+
+One way to find the centroid is to pick an arbitrary root, 
+then run a depth-first search computing the size of each subtree, 
+and then move starting from root to the largest subtree until
+we reach a vertex where no subtree has size greater than N/2.
+
+
+       1
+      /   
+    2      
+    |
+    3
+   /  \
+   4   5
+
+=========================================================================
+
+注意：可能會有多個分支
+例子：
+      10
+      4 1
+      6 5
+      7 2 
+      6 3
+      1 7
+      2 10  
+      10 9
+      3 8
+      8 9
+
+                     5
+              /     |      \
+            9       8       4
+            |       |      /  \
+            3      10    2     6
+            |            |
+            1            7
+
+
+計算所有分支的方式：
+    用 dfs從點一開始跑，計算相連的點的分支大小，取最大值。
+    後來的「 max_sub_tree_node[now] = max( max_sub_tree_node[now] , num-sub_tree[now] ); 」表示 parent那條分支的大小。
+    因為 parent那條分支也算是一個子樹，但我們有「 if(tree[now][i] == parent) continue; 」這個程式避免我們又往回判斷（浪費時間）。
+
+Reference:
+https://iq.opengenus.org/centroid-decomposition-of-tree/
