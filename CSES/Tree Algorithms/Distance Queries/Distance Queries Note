@@ -1,0 +1,12 @@
+題意：要求某一點到另一點的最短距離。
+解題技巧：
+    Level[Node x ] + Level [Node y] – 2 * Level[LCA]
+    
+＊＊LCA
+
+注意：
+  因為題目兩點相連並不是按照高低順序（可能前面的數字是兒子，後面的是父親） ，所以存連接狀況時要雙向都儲存
+
+Reference:
+     讀書會學長分享
+    【筆記】Lowest Common Ancestor 最近共同祖先 : https://yuihuang.com/lowest-common-ancestor/
