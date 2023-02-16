@@ -1,0 +1,138 @@
+movie vs love
+
+** 'm' & 'l'  exchange 
+        *
+        m   o   v   i   e
+
+   *l   1
+
+    o
+
+    v
+
+    e
+
+* plus 'o'
+        *   *
+        m   o   v   i   e
+        
+   *l   1   2
+
+    o
+
+    v
+
+    e
+
+#比較的時候，當x比y大的話，(x,y)的值受(x-1,y)影響
+        *   *   *   *   *
+        m   o   v   i   e
+        
+   *l   1   2   3   4   5
+
+    o
+
+    v
+
+    e
+
+
+**plus 'o'
+#比較的時候，當y比x大的話，(x,y)的值受(x,y-1)影響，如下方的 ('m','o')(0,1)受到 ('m','l')(0,0)影響
+        *
+        m   o   v   i   e
+        
+   *l   1   2   3   4   5
+
+   *o   2
+
+    v
+
+    e
+
+
+** 'o' 'o'same
+        *   *
+        m   o   v   i   e
+        
+   *l   1   2   3   4   5
+
+   *o   2   1
+
+    v
+
+    e
+
+#比較的時候，當x比y大的話，(x,y)的值受(x-1,y)影響
+        *   *   *   *   *
+        m   o   v   i   e
+        
+   *l   1   2   3   4   5
+
+   *o   2   1   2   3   4
+
+    v
+
+    e
+
+#比較的時候，當y比x大的話，(x,y)的值受(x,y-1)影響
+        *   *   
+        m   o   v   i   e
+        
+   *l   1   2   3   4   5
+
+   *o   2   1   2   3   4
+
+   *v   3   2
+
+    e
+
+** 'v' 'v' same
+        *   *   *
+        m   o   v   i   e
+        
+   *l   1   2   3   4   5
+
+   *o   2   1   2   3   4
+
+   *v   3   2   1
+
+    e
+
+        *   *   *   *   *
+        m   o   v   i   e
+        
+   *l   1   2   3   4   5
+
+   *o   2   1   2   3   4
+
+   *v   3   2   1   2   3
+
+    e
+
+        *   *   *   *
+        m   o   v   i   e
+        
+   *l   1   2   3   4   5
+
+   *o   2   1   2   3   4
+
+   *v   3   2   1   2   3
+
+   *e   4   3   2   3
+
+** 'e' 'e' same
+#(x,y)和(x-1,y-1)一樣
+        *   *   *   *
+        m   o   v   i   e
+        
+   *l   1   2   3   4   5
+
+   *o   2   1   2   3   4
+
+   *v   3   2   1   2   3
+
+   *e   4   3   2   3   2
+
+Reference
+https://www.youtube.com/watch?v=F75bJEJfLww
