@@ -1,0 +1,6 @@
+＊＊Floyd Warshall Algorithm 
+    用處：所有點到所有點的最短路徑 ( dijkstra 適用在一個點到其他點的最短路徑 ) 
+    作法：利用二維陣列做出一個 cityNum * cityNum 的表格，尚未處理過的位置就存放極大值。
+
+Reference
+    https://www.youtube.com/watch?v=4OQeCuLYj-4&t=1s
