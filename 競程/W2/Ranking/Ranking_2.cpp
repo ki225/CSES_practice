@@ -1,4 +1,4 @@
-//優化過的，好看多了
+//耗費時間較多的樣子
 
 #include <iostream>
 #include <vector>
