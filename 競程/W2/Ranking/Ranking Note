@@ -1,1 +1,42 @@
-** Ranking_1.cpp當時用編譯器clang++17跑的時候一直超時（測資13的樣子），後來學長用G++20幫我跑測資就成功了，然後就被說是抄作業然後被警告了哭哭，冤望 /_;
+ps. Ranking_1.cpp當時用編譯器clang++17跑的時候一直超時（測資13的樣子），後來學長用G++20幫我跑測資就成功了，然後就被說是抄作業然後被警告了哭哭，冤望 /_;
+
+題目：
+    要求順序，除了最贏的人和最輸的人以外，每個人前面都要有個贏他的人，後面要有個輸他的人，且前後各只能有一人。
+
+＊＊拓撲排序（Topological Sort）
+  1.  一種對有向圖的排序方式（是有向無環圖，DAG）
+  2.  vector<vector<int>> map : 建有向圖，
+      vector<int>deg  : 存每個點前面有幾個箭頭(deg[i])指向他（i）
+  3.  每一次都取 deg為 0 的元素
+  4.  舉例：
+    
+    測資為：
+    4 4
+    1 2
+    3 2
+    3 1
+    2 4
+    
+    建構的圖（關係）為：
+          
+          3    
+        / |
+       /  |
+      /   |
+     v    v
+    1 --> 2 --> 4
+    
+    deg[3] = 0
+    deg[1] = 1
+    deg[2] = 2
+    deg[4] = 1
+    
+    Step1. 因為deg[3] = 0 ，所以用3作為起點（丟到queue，並取出來），並且去尋找3指向的其他點（1 和 2）。
+    Step2. 1和2的deg值分別減一，會發現 deg[1]=0 ，所以用1作為起點（丟到queue，並取出來），去尋找1指向的點（2）。
+    Step3. 2的deg值減一，deg[2]=0，同樣步驟.......
+    Step4. 直到queue 為空
+
+
+Reference:
+競程PPT的「拓撲排序」
+https://hackmd.io/@LeeShoWhaodian/GraphAlgorithm1?fbclid=IwAR0eGTrPdDhErBE6JtUlfSnvU0unYKSmkTLND8VfpmMtVXgQzt9-tIEtFy0#/2
