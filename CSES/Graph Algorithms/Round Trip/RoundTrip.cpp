@@ -50,19 +50,18 @@ bool dfs(int start,int before){
         }
         if(vis[route[start][i]] != 0){
             start_ans = route[start][i]; 
-            end_ans = start; //若 end_ans = before_vec[route[start][i]]，且開頭為 1 ，則這邊的before[1] = -1
-            
-            return true;
+            end_ans = start; //若 end_ans = before_vec[route[start][i]]，且開頭為 1 ，則這邊的before[1] = -1   
+            return true; //表示找到原點，即 dfs的終點。
         }
         if(! vis[route[start][i]]){ //沒到過
-            if(dfs(route[start][i] , start)){
+            if(dfs(route[start][i] , start)){ //繼續往下去找
                 return true;
-            }
-                
+            }  
         }
     }   
     return false; 
 }
+
 
 bool visit_all(){
     for(int i=1;i<= cityNum;i++){
