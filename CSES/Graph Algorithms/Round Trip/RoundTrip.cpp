@@ -66,7 +66,6 @@ bool dfs(int start,int before){
 bool visit_all(){
     for(int i=1;i<= cityNum;i++){
         if(vis[i] == 0){
-            vector <int> path_vec;
             if(dfs(i,-1)){
                 return true;
             }
