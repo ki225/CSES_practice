@@ -1,26 +1,25 @@
 course1 暖身&常見STL運用&基本演算法
-===
+   ---
 
 # 1. 前言
-:::success
-APCS
-- 第一題:基本的輸入輸出、運算、判別式與迴圈。
-- 第二題:簡單的陣列運用，通常一維50分二維50分。
-- 第三題:遞迴、排序與搜尋、或簡單資料結構(stack and queue) 
-- 第四題:貪心、分治或DP。
-:::
-:::success
-剛開始上課先從基本的題目入門競程吧，之後還有很多演算法等你XD
-:::
+> [!TIP]
+> APCS
+> - 第一題:基本的輸入輸出、運算、判別式與迴圈。
+> - 第二題:簡單的陣列運用，通常一維50分二維50分。
+> - 第三題:遞迴、排序與搜尋、或簡單資料結構(stack and queue) 
+> - 第四題:貪心、分治或DP。
+
+> [!TIP]
+> 剛開始上課先從基本的題目入門競程吧，之後還有很多演算法等你XD
 
 # 2. warm-up
 ## 2-1. 萬用標頭檔
-```cpp=
+```cpp 
 #include <bits/stdc++.h>
 ```
 ## 2-2. 加速
 > - IO優化
-```cpp=
+```cpp 
 ios::sync_with_stdio(false); 
 cin.tie(nullptr); 
 ```
@@ -30,7 +29,7 @@ cin.tie(nullptr);
 >若只使用第一點，不使用第二點，則在輸出時仍然會因為flush過慢拖累整體執行效率。
 >若只使用第二點，雖然輸出時不會 flush，但 cin 時預設也會 flush，因此依然很慢。
 
-```cpp=
+```cpp 
 #include <bits/stdc++.h>
 using namespace std;
 int main(void){
@@ -58,7 +57,7 @@ int main(void){
 >---
 >- 起始於變數宣告，結束於宣告敘述所在的區塊的大右括號，在生命週期內會佔用記憶體。
 >- 缺點：記憶體會被分配在 stack 區段，而這塊區域一般來說並不夠大，因此只要陣列太大，就會立刻 stack overflow。
-```cpp=
+```cpp 
 #include <bits/stdc++.h>
 using namespace std;
 int arr[10000000]; //全域變數，所以沒有給定初始值會自動給0
@@ -75,12 +74,12 @@ int main(void){
 > max({var1,var2,var3}); //比較多個變數
 > ```
 
-:::info
-應用題
-[c295. APCS-2016-1029-2最大和](https://zerojudge.tw/ShowProblem?problemid=c295)
-[f312. 人力分配](https://zerojudge.tw/ShowProblem?problemid=f312)
-[f605. 購買力](https://zerojudge.tw/ShowProblem?problemid=f605)
-:::
+> [!NOTE]  
+>應用題
+>- [c295. APCS-2016-1029-2最大和](https://zerojudge.tw/ShowProblem?problemid=c295)
+> - [f312. 人力分配](https://zerojudge.tw/ShowProblem?problemid=f312)
+> - [f605. 購買力](https://zerojudge.tw/ShowProblem?problemid=f605)
+
 
 
 
@@ -91,36 +90,36 @@ int main(void){
 >- 不可以存放無限多的陣列
 >- 宣告很大陣列時會加上誤差值5~15，例如：`int arr[10000015]={0}`
 >- 設在全域會自動初始化為0
-:::danger
-在區域變數中乘起來最大約 $10^5$ ~ $10^6$，在全域變數中乘起來不可以超過大小限制約 $10^8$
-:::
+> [!WARNING]
+>在區域變數中乘起來最大約 $10^5$ ~ $10^6$，在全域變數中乘起來不可以超過大小限制約 $10^8$
+
 
 
 ## 3-1. 矩陣
-:::info
-應用題
+> [!NOTE] 
+>應用題
+>
+>- [b266. 矩陣翻轉 / 2016 APCS 實作題第二題](https://zerojudge.tw/ShowProblem?problemid=b266)
+> - [h027. 202001_2 矩陣總和](https://zerojudge.tw/ShowProblem?problemid=h027)
 
-[b266. 矩陣翻轉 / 2016 APCS 實作題第二題](https://zerojudge.tw/ShowProblem?problemid=b266)
-[h027. 202001_2 矩陣總和](https://zerojudge.tw/ShowProblem?problemid=h027)
-:::
 
 ## 3-2. 排序
 由小到大
-```cpp=
+```cpp 
 sort(arr,arr+陣列元素數量)
 ```
 
 
 由大到小
-```cpp=
+```cpp 
 sort(arr, arr+n, greater<int>());
 ```
 
-:::info 
-應用題
+> [!NOTE] 
+>應用題
+>
+>- [TOJ 47](https://toj.tfcis.org/oj/pro/47/)
 
-[TOJ 47](https://toj.tfcis.org/oj/pro/47/)
-:::
 
 ## 3-3. 紀錄
 
@@ -179,11 +178,11 @@ sort(arr, arr+n, greater<int>());
 
 ## 3-4. 字串處理
 字串在C語言中是以`char arr`的形式存在，但在c++中，取得字串特定位置的字元也可以用陣列取索引值的方法。
-:::info
-應用題
+> [!NOTE] 
+>應用題
+>
+> - [a013. 羅馬數字](https://zerojudge.tw/ShowProblem?problemid=a013) 
 
-[a013. 羅馬數字](https://zerojudge.tw/ShowProblem?problemid=a013) 
-:::
 
 ## 3-5. 建表
 [c633. 基礎排序 #2-2 ( 質因數和 )](https://www.zerojudge.tw/ShowProblem?problemid=c633)
@@ -299,12 +298,12 @@ sort(arr, arr+n, greater<int>());
 >}
 >```
 
-:::info
-應用題
+> [!NOTE] 
+>應用題
+>
+> - [c123. 00514 - Rails](https://zerojudge.tw/ShowProblem?problemid=c123)
+> - [a565. 2.p&q的邂逅](https://zerojudge.tw/ShowProblem?problemid=a565)
 
-[c123. 00514 - Rails](https://zerojudge.tw/ShowProblem?problemid=c123)
-[a565. 2.p&q的邂逅](https://zerojudge.tw/ShowProblem?problemid=a565)
-:::
 
 # 7. map
 > 簡介
@@ -314,13 +313,13 @@ sort(arr, arr+n, greater<int>());
 >
 >宣告
 >---
->```cpp=
+>```cpp
 >#include < map>
 >```
->```cpp=
+>```cpp 
 >map<char, int> myMap;
 >```
->```cpp=
+>```cpp 
 >map<char, int> myMap {
 >    {'a', 1},
 >    {'b', 2},
@@ -329,25 +328,25 @@ sort(arr, arr+n, greater<int>());
 >```
 >插入新元素
 >---
->```cpp=
+>```cpp
 >myMap[new_key] = new_val;
 >```
 >刪除存在元素
 >---
->```cpp=
+>```cpp
 >// 刪除鍵為 'b' 的鍵值對
 >myMap.erase('b');
 >```
 >遍歷
 >---
->```cpp=
+>``` cpp
 >for (auto it = myMap.begin(); it != myMap.end(); ++it){
 >    cout << it->first << " => " << it->second << " ";
 >}
 >```
 >查找特定元素
 >---
->```cpp=
+>``` cpp
 >// 查找特定的鍵
 >auto search = myMap.find('b');
 >if (search != myMap.end()) {
@@ -364,30 +363,30 @@ sort(arr, arr+n, greater<int>());
 >
 >宣告
 >---
->```cpp=
+>``` cpp
 >#include < set>
 >```
->```cpp=
+>``` cpp
 >set<int,less< int>> s; //小到大
 >set<int,greater< int>> s; //大到小
 >```
->```cpp=
+>``` cpp
 >set< int> myset{1, 2, 3, 4, 5};
 >```
 >
 >插入元素
 >---
->```cpp=
+>``` cpp
 >s1.insert(x);
 >```
 >刪除指定元素
->```cpp=
+>``` cpp
 >myset.erase(該元素的值);
 >```
 >
 >遍歷
 >---
->```cpp=
+>``` cpp
 >for (itr = s1.begin(); itr != s1.end(); itr++) {
 >    cout << *itr << " ";
 >}
@@ -395,7 +394,7 @@ sort(arr, arr+n, greater<int>());
 >查找特定元素
 >---
 >
->```cpp=
+>``` cpp
 >auto search = mySet.find(2);
 >if (search != mySet.end()) {
 >    cout << "Found " << *search << endl;
@@ -404,17 +403,16 @@ sort(arr, arr+n, greater<int>());
 >}
 >```
 >
-:::info
-[i399. APCS 數字遊戲](https://zerojudge.tw/ShowProblem?problemid=i399)
-:::
+
+> [!NOTE] 
+>[i399. APCS 數字遊戲](https://zerojudge.tw/ShowProblem?problemid=i399)
 
 # 9. 遞迴演算法
 - 遞迴：不斷呼叫自己
 - 要設定 base case (終止條件)
 - 遇到有 return 的要注意 return 前後上下層的關係
 
-:::info
+> [!NOTE] 
+> - [e357. 遞迴函數練習](https://zerojudge.tw/ShowProblem?problemid=e357)
+> - [a227. 三龍杯 -> 河內之塔](https://zerojudge.tw/ShowProblem?problemid=a227)
 
-[e357. 遞迴函數練習](https://zerojudge.tw/ShowProblem?problemid=e357)
-[a227. 三龍杯 -> 河內之塔](https://zerojudge.tw/ShowProblem?problemid=a227)
-:::
